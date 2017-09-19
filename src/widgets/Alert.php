@@ -1,6 +1,6 @@
 <?php
 
-namespace common\widgets;
+namespace yii2lab\notify\widgets;
 
 use Yii;
 use kartik\widgets\Alert as kartikAlert;
