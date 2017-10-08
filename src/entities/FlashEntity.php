@@ -3,7 +3,7 @@
 namespace yii2lab\notify\entities;
 
 use yii2lab\domain\BaseEntity;
-use yii2module\lang\helpers\LangHelper;
+use yii2module\lang\domain\helpers\LangHelper;
 
 class FlashEntity extends BaseEntity {
 
