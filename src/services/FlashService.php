@@ -8,11 +8,12 @@ use yii2lab\notify\widgets\Alert;
 
 class FlashService extends ActiveBaseService {
 	
-	public function send($message, $type = Alert::TYPE_SUCCESS, $delay = FlashEntity::DELAY_DEFAULT) {
-		$entity = $this->domain->factory->entity->create(FlashEntity::className());
-		$entity->type = $type;
-		$entity->content = $message;
-		$entity->delay = $delay;
+	public function send($content, $type = Alert::TYPE_SUCCESS, $delay = FlashEntity::DELAY_DEFAULT) {
+		$entity = $this->repository->forgeEntity([
+			'type' => $type,
+			'content' => $content,
+			'delay' => $delay,
+		]);
 		$this->repository->send($entity);
 	}
 	
