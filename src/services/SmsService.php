@@ -9,8 +9,12 @@ use yii2lab\notify\job\SmsJob;
 
 class SmsService extends ActiveBaseService {
 	
-	public function send($address, $subject, $content) {
+	public function send($address, $subject, $content = '') {
 		$data = compact('address', 'subject', 'content');
+		if(empty($data['content']) && !empty($data['subject'])) {
+			$data['content'] = $data['subject'];
+			$data['subject'] = '';
+		}
 		$message = $this->domain->factory->entity->create(SmsEntity::className(), $data);
 		$message->validate();
 		$job = Yii::createObject(SmsJob::className());

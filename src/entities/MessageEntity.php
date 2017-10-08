@@ -3,6 +3,7 @@
 namespace yii2lab\notify\entities;
 
 use yii2lab\domain\BaseEntity;
+use yii2module\lang\helpers\LangHelper;
 
 class MessageEntity extends BaseEntity {
 	
@@ -19,6 +20,14 @@ class MessageEntity extends BaseEntity {
 			[['content', 'subject'], 'trim'],
 			[['address', 'content'], 'required'],
 		];
+	}
+	
+	public function setSubject($value) {
+		$this->subject = LangHelper::extract($value);
+	}
+	
+	public function setContent($value) {
+		$this->content = LangHelper::extract($value);
 	}
 	
 }
