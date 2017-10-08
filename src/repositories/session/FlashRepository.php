@@ -5,12 +5,14 @@ namespace yii2lab\notify\repositories\session;
 use yii2lab\domain\helpers\ReflectionHelper;
 use yii2lab\domain\repositories\BaseRepository;
 use Yii;
+use yii2lab\notify\entities\FlashEntity;
 use yii2lab\notify\widgets\Alert;
 
 class FlashRepository extends BaseRepository {
 	
-	public function send($message, $type) {
-		Yii::$app->session->setFlash($type, $message);
+	public function send(FlashEntity $entity) {
+		$message = serialize($entity->toArray());
+		Yii::$app->session->setFlash($entity->type, $message);
 	}
 	
 	public function fetch() {
@@ -18,7 +20,7 @@ class FlashRepository extends BaseRepository {
 		foreach($typeList as $type) {
 			if ($this->has($type)) {
 				$entity = $this->fetchByType($type);
-				return $entity;
+				return $this->forgeEntity($entity);
 			}
 		}
 		return null;
@@ -29,12 +31,9 @@ class FlashRepository extends BaseRepository {
 	}
 	
 	private function fetchByType($type) {
-		$s = Yii::$app->session->getFlash($type);
-		$entity = $this->domain->factory->entity->create('flash', [
-			'type' => $type,
-			'body' => $s,
-		]);
-		return $entity;
+		$message = Yii::$app->session->getFlash($type);
+		$data = unserialize($message);
+		return $this->forgeEntity($data);
 	}
 
 }

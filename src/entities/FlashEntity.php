@@ -2,16 +2,21 @@
 
 namespace yii2lab\notify\entities;
 
-use yii2lab\domain\BaseEntity;
-use yii2module\lang\domain\helpers\LangHelper;
+/**
+ * Class FlashEntity
+ *
+ * @package yii2lab\notify\entities
+ *
+ * @property string $type
+ * @property boolean $closable
+ * @property boolean $autoHide
+ */
+class FlashEntity extends MessageEntity {
 
-class FlashEntity extends BaseEntity {
+	const DELAY_DEFAULT = 5000;
 
 	protected $type;
-	protected $body;
-	
-	public function setBody($value) {
-		$this->body = LangHelper::extract($value);
-	}
+	protected $closable = true;
+	protected $delay = self::DELAY_DEFAULT;
 
 }

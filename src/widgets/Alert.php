@@ -28,7 +28,9 @@ class Alert extends kartikAlert
 				$entity = Yii::$app->notify->flash->fetch();
 				if($entity) {
 					$this->type = $entity->type;
-					$this->body = $entity->body;
+					$this->body = $entity->content;
+					$this->title = $entity->subject;
+					$this->delay = $entity->delay;
 				}
 			}
 			if(!empty($this->body)) {
