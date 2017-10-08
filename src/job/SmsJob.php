@@ -2,8 +2,10 @@
 
 namespace yii2lab\notify\job;
 
+use Yii;
 use yii\base\Object;
 use yii\queue\Job;
+use yii2lab\notify\entities\SmsEntity;
 
 class SmsJob extends Object implements Job
 {
@@ -13,7 +15,12 @@ class SmsJob extends Object implements Job
 	
 	public function execute($queue)
 	{
-		prr('--- cron sms ---');
-		prr($this,0,1);
+		$data = [
+			'address' => $this->address,
+			'subject' => $this->subject,
+			'content' => $this->content,
+		];
+		$entity = Yii::$app->notify->factory->entity->create(SmsEntity::className(), $data);
+		Yii::$app->notify->repositories->sms->send($entity);
 	}
 }
