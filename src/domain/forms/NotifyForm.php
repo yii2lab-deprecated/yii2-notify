@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2lab\notify\forms;
+namespace yii2lab\notify\domain\forms;
 
 use common\yii\base\Model;
 

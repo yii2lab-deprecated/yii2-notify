@@ -1,11 +1,11 @@
 <?php
 
-namespace yii2lab\notify\services;
+namespace yii2lab\notify\domain\services;
 
 use Yii;
 use yii2lab\domain\services\ActiveBaseService;
-use yii2lab\notify\entities\EmailEntity;
-use yii2lab\notify\job\EmailJob;
+use yii2lab\notify\domain\entities\EmailEntity;
+use yii2lab\notify\domain\job\EmailJob;
 
 class EmailService extends ActiveBaseService {
 	

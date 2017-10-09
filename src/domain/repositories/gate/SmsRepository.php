@@ -1,9 +1,9 @@
 <?php
 
-namespace yii2lab\notify\repositories\gate;
+namespace yii2lab\notify\domain\repositories\gate;
 
 use yii2lab\domain\repositories\BaseRepository;
-use yii2lab\notify\entities\MessageEntity;
+use yii2lab\notify\domain\entities\MessageEntity;
 
 class SmsRepository extends BaseRepository {
 	

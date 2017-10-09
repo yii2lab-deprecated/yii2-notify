@@ -1,5 +1,5 @@
 <?php
-namespace yii2lab\notify\models;
+namespace yii2lab\notify\domain\models;
 
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;

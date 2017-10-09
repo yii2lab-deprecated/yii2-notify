@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2lab\notify\entities;
+namespace yii2lab\notify\domain\entities;
 
 use yii2lab\domain\BaseEntity;
 use yii2module\lang\domain\helpers\LangHelper;

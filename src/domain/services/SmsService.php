@@ -1,11 +1,11 @@
 <?php
 
-namespace yii2lab\notify\services;
+namespace yii2lab\notify\domain\services;
 
 use Yii;
 use yii2lab\domain\services\ActiveBaseService;
-use yii2lab\notify\entities\SmsEntity;
-use yii2lab\notify\job\SmsJob;
+use yii2lab\notify\domain\entities\SmsEntity;
+use yii2lab\notify\domain\job\SmsJob;
 
 class SmsService extends ActiveBaseService {
 	

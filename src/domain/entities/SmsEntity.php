@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2lab\notify\entities;
+namespace yii2lab\notify\domain\entities;
 
 class SmsEntity extends MessageEntity {
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace yii2lab\notify\job;
+namespace yii2lab\notify\domain\job;
 
 use Yii;
 use yii\base\Object;
 use yii\queue\Job;
-use yii2lab\notify\entities\EmailEntity;
+use yii2lab\notify\domain\entities\SmsEntity;
 
-class EmailJob extends Object implements Job
+class SmsJob extends Object implements Job
 {
 	public $address;
 	public $subject;
@@ -20,7 +20,7 @@ class EmailJob extends Object implements Job
 			'subject' => $this->subject,
 			'content' => $this->content,
 		];
-		$entity = Yii::$app->notify->factory->entity->create(EmailEntity::className(), $data);
-		Yii::$app->notify->repositories->email->send($entity);
+		$entity = Yii::$app->notify->factory->entity->create(SmsEntity::className(), $data);
+		Yii::$app->notify->repositories->sms->send($entity);
 	}
 }

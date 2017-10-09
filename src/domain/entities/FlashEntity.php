@@ -1,11 +1,11 @@
 <?php
 
-namespace yii2lab\notify\entities;
+namespace yii2lab\notify\domain\entities;
 
 /**
  * Class FlashEntity
  *
- * @package yii2lab\notify\entities
+ * @package yii2lab\notify\domain\entities
  *
  * @property string $type
  * @property boolean $closable
