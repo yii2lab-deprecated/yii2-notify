@@ -8,8 +8,8 @@ use yii2lab\notify\domain\entities\MessageEntity;
 class EmailRepository extends BaseRepository {
 	
 	public function send(MessageEntity $message) {
-		prr('--- cron Email ---');
-		prr($message,1,1);
+		//prr('--- cron Email ---');
+		//prr($message);
 	}
 	
 }
