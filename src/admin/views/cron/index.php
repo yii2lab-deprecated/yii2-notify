@@ -7,12 +7,6 @@ use yii2lab\notify\domain\widgets\Alert;
 
 $this->title = t('this/cron', 'title');
 
-if(!empty($jobList)) {
-	$message = t('github/local', 'has_job') . ': ';
-	$message .= implode(', ', $jobList);
-	Yii::$app->notify->flash->send($message, Alert::TYPE_WARNING, null);
-}
-
 ?>
 
 <?= implode('<br/>', $jobList) ?>

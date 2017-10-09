@@ -11,4 +11,5 @@ return [
 	'description'=>'Для запуска крон-задач из консоли, используйте команду: <code>php yii queue/run</code>',
 	'run_demon'=>'Запустить демон',
 	'demon_success_started'=>'Демон успешно запущен',
+	'cron_empty_run'=>'Не найдено задач для выполнения',
 ];
