@@ -2,14 +2,29 @@
 
 /* @var $this yii\web\View */
 
+use yii\data\ArrayDataProvider;
+use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 use yii2lab\helpers\yii\Html;
-use yii2lab\notify\domain\widgets\Alert;
 
 $this->title = t('this/cron', 'title');
-
+$columns = [
+	[
+		'label' => 'class',
+		'attribute' => 'class',
+	],
+	[
+		'label' => 'attributes',
+		'format' => 'raw',
+		'value' => function($data) {
+            return json_encode($data['attributes'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+		},
+	],
+];
+$dataProvider = new ArrayDataProvider([
+	'models' => ArrayHelper::toArray($jobList),
+]);
 ?>
-
-<?= implode('<br/>', $jobList) ?>
 
 <div class="dashboard-index">
 
@@ -28,3 +43,11 @@ $this->title = t('this/cron', 'title');
 	</div>
 
 </div>
+
+<?= GridView::widget([
+	'dataProvider' => $dataProvider,
+	'layout' => '{items}',
+	'columns' => $columns,
+]);
+?>
+
