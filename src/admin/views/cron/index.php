@@ -11,18 +11,21 @@ $this->title = t('this/cron', 'title');
 $columns = [
 	[
 		'label' => 'class',
-		'attribute' => 'class',
+		'format' => 'raw',
+		'value' => function($job) {
+			return $job->className();
+		},
 	],
 	[
 		'label' => 'attributes',
 		'format' => 'raw',
-		'value' => function($data) {
-            return json_encode($data['attributes'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+		'value' => function($job) {
+            return json_encode(ArrayHelper::toArray($job), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 		},
 	],
 ];
 $dataProvider = new ArrayDataProvider([
-	'models' => ArrayHelper::toArray($jobList),
+	'models' => $jobList,
 ]);
 ?>
 
