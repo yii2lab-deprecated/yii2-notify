@@ -5,6 +5,15 @@ namespace yii2lab\notify\domain\entities;
 use yii2lab\domain\BaseEntity;
 use yii2module\lang\domain\helpers\LangHelper;
 
+/**
+ * Class MessageEntity
+ *
+ * @package yii2lab\notify\domain\entities
+ *
+ * @property string $address
+ * @property string $subject
+ * @property string $content
+ */
 class MessageEntity extends BaseEntity {
 	
 	protected $address;
