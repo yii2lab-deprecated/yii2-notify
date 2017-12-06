@@ -55,7 +55,7 @@ return [
 ];
 ```
 
-Объявляем конфиг common/config/main.php
+Объявляем конфиг `common/config/main.php`
 
 ```php
 return [
@@ -67,7 +67,7 @@ return [
 		],
 		'mailer' => [
 			'class' => 'yii\swiftmailer\Mailer',
-			'viewPath' => '@common/mail',
+			'viewPath' => '@yii2lab/notify/domain/mail',
 			// send all mails to a file by default. You have to set
 			// 'useFileTransport' to false and configure a transport
 			// for the mailer to send real emails.
