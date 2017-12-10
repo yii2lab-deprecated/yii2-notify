@@ -49,9 +49,9 @@ class Alert extends kartikAlert
 		}
 	}
 	
-	public static function add($body, $type = parent::TYPE_SUCCESS)
+	/*public static function add($body, $type = parent::TYPE_SUCCESS)
 	{
 		Yii::$app->notify->flash->send($body, $type);
-	}
+	}*/
 	
 }
