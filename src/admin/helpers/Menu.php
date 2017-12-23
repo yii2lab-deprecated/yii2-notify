@@ -4,11 +4,15 @@ namespace yii2lab\notify\admin\helpers;
 
 // todo: отрефакторить - сделать нормальный интерфейс и родителя
 
+use common\enums\rbac\PermissionEnum;
+
 class Menu {
 	
 	static function getMenu() {
 		return [
-			'label' => t('notify/main', 'title'),
+			'label' => ['notify/main', 'title'],
+			'module' => 'notify',
+			'access' => PermissionEnum::NOTIFY_MANAGE,
 			'icon' => 'bell',
 			'items' => [
 				[
