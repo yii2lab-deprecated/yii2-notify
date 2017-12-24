@@ -5,6 +5,7 @@ namespace yii2lab\notify\admin\helpers;
 // todo: отрефакторить - сделать нормальный интерфейс и родителя
 
 use common\enums\rbac\PermissionEnum;
+use yii2lab\notify\domain\helpers\JobHelper;
 
 class Menu {
 	
@@ -26,6 +27,7 @@ class Menu {
 				[
 					'label' => ['notify/cron', 'title'],
 					'url' => 'notify/cron',
+					'badge' => count(JobHelper::getAll()),
 				],
 			],
 		];
