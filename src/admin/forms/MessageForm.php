@@ -2,6 +2,7 @@
 
 namespace yii2lab\notify\admin\forms;
 
+use Yii;
 use yii2woop\account\domain\forms\RestorePasswordForm as ApiRestorePasswordForm;
 
 class MessageForm extends ApiRestorePasswordForm {
@@ -13,9 +14,9 @@ class MessageForm extends ApiRestorePasswordForm {
 	public function attributeLabels()
 	{
 		return [
-			'address' => t('notify/main', 'address'),
-			'subject' => t('notify/main', 'subject'),
-			'content' => t('notify/main', 'content'),
+			'address' => Yii::t('notify/main', 'address'),
+			'subject' => Yii::t('notify/main', 'subject'),
+			'content' => Yii::t('notify/main', 'content'),
 		];
 	}
 }

@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = t('notify/main', 'sms');
+$this->title = Yii::t('notify/main', 'sms');
 Yii::$app->navigation->breadcrumbs->create($this->title);
 ?>
 <div class="send-sms">
