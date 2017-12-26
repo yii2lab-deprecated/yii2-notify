@@ -27,7 +27,7 @@ class CronController extends Controller
 	{
 		$jobList = JobHelper::getAll();
 		if(!empty($jobList)) {
-			$message = Yii::t('github/local', 'has_job');
+			$message = Yii::t('notify/cron', 'has_job');
 			Yii::$app->notify->flash->send($message, Alert::TYPE_INFO, null);
 		}
 		return $this->render('index', compact('jobList'));
