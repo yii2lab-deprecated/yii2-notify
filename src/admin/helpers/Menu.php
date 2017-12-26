@@ -14,7 +14,7 @@ class Menu {
 			'label' => ['notify/main', 'title'],
 			'module' => 'notify',
 			'access' => PermissionEnum::NOTIFY_MANAGE,
-			'icon' => 'bell',
+			'icon' => 'bell-o',
 			'items' => [
 				[
 					'label' => ['notify/main', 'sms'],
