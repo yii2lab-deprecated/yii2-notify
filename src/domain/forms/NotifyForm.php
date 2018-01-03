@@ -2,7 +2,7 @@
 
 namespace yii2lab\notify\domain\forms;
 
-use common\yii\base\Model;
+use yii2lab\misc\yii\base\Model;
 
 class NotifyForm extends Model
 {
