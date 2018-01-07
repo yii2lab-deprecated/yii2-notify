@@ -7,6 +7,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
+use yii2lab\helpers\Behavior;
 use yii2lab\notify\admin\forms\MessageForm;
 
 class SendController extends Controller
@@ -15,15 +16,7 @@ class SendController extends Controller
 	public function behaviors()
 	{
 		return [
-			'access' => [
-				'class' => AccessControl::className(),
-				'rules' => [
-					[
-						'allow' => true,
-						'roles' => [PermissionEnum::NOTIFY_MANAGE],
-					],
-				],
-			],
+			'access' => Behavior::access(PermissionEnum::NOTIFY_MANAGE),
 		];
 	}
 	

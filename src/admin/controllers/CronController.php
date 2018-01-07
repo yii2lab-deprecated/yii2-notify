@@ -5,6 +5,7 @@ namespace yii2lab\notify\admin\controllers;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii2lab\helpers\Behavior;
 use yii2lab\notify\domain\helpers\JobHelper;
 use yii2lab\notify\domain\widgets\Alert;
 
@@ -14,12 +15,9 @@ class CronController extends Controller
 	public function behaviors()
 	{
 		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'run' => ['post'],
-				],
-			]
+			'verb' => Behavior::verb([
+				'run' => ['post'],
+			]),
 		];
 	}
 	
