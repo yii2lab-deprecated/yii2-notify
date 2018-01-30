@@ -2,14 +2,12 @@
 
 namespace yii2lab\notify\admin\helpers;
 
-// todo: отрефакторить - сделать нормальный интерфейс и родителя
-
 use common\enums\rbac\PermissionEnum;
 use yii2lab\notify\domain\helpers\JobHelper;
 
 class Menu {
 	
-	static function getMenu() {
+	public function toArray() {
 		return [
 			'label' => ['notify/main', 'title'],
 			'module' => 'notify',
