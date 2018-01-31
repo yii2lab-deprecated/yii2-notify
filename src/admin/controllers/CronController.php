@@ -35,7 +35,9 @@ class CronController extends Controller
 	{
 		$jobList = JobHelper::getAll();
 		if(!empty($jobList)) {
-			Yii::$app->queue->run();
+			$queue = Yii::$app->queue;
+			/** @var \yii\queue\file\Queue $queue */
+			$queue->run(false);
 			Yii::$app->notify->flash->send(['notify/cron', 'cron_success_run']);
 		} else {
 			Yii::$app->notify->flash->send(['notify/cron', 'cron_empty_run'], Alert::TYPE_WARNING);
