@@ -1,6 +1,6 @@
 <?php
 
-use yii2lab\migration\db\MigrationCreateTable as Migration;
+use yii2lab\db\domain\db\MigrationCreateTable as Migration;
 
 /**
 * Handles the creation of table `notify`.
