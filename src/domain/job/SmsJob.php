@@ -7,7 +7,7 @@ use yii\base\BaseObject;
 use yii\queue\Job;
 use yii2lab\notify\domain\entities\SmsEntity;
 
-class SmsJob extends Object implements Job
+class SmsJob extends BaseObject implements Job
 {
 	public $address;
 	public $subject;
