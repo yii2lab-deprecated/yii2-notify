@@ -3,11 +3,11 @@
 namespace yii2lab\notify\domain\job;
 
 use Yii;
-use yii\base\Object;
-use yii\queue\Job;
+use yii\base\BaseObject;
+use yii\queue\JobInterface;
 use yii2lab\notify\domain\entities\SmsEntity;
 
-class SmsJob extends Object implements Job
+class SmsJob extends BaseObject implements JobInterface
 {
 	public $address;
 	public $subject;
