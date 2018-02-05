@@ -5,7 +5,6 @@ namespace yii2lab\notify\domain\repositories\session;
 use yii2lab\helpers\ReflectionHelper;
 use yii2lab\domain\repositories\BaseRepository;
 use Yii;
-use yii2lab\helpers\ReflectionHelper;
 use yii2lab\notify\domain\entities\FlashEntity;
 use yii2lab\notify\domain\widgets\Alert;
 
