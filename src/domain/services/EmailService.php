@@ -11,9 +11,9 @@ class EmailService extends ActiveBaseService {
 	
 	public function send($address, $subject, $content) {
 		$data = compact('address', 'subject', 'content');
-		$message = $this->domain->factory->entity->create(EmailEntity::className(), $data);
+		$message = $this->domain->factory->entity->create(EmailEntity::class, $data);
 		$message->validate();
-		$job = Yii::createObject(EmailJob::className());
+		$job = Yii::createObject(EmailJob::class);
 		Yii::configure($job, $message->toArray());
 		$jobId = Yii::$app->queue->push($job);
 		return $jobId;

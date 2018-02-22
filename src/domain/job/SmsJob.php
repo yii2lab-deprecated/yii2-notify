@@ -20,7 +20,7 @@ class SmsJob extends BaseObject implements JobInterface
 			'subject' => $this->subject,
 			'content' => $this->content,
 		];
-		$entity = Yii::$app->notify->factory->entity->create(SmsEntity::className(), $data);
+		$entity = Yii::$app->notify->factory->entity->create(SmsEntity::class, $data);
 		Yii::$app->notify->repositories->sms->send($entity);
 	}
 }

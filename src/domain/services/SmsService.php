@@ -15,9 +15,9 @@ class SmsService extends ActiveBaseService {
 			$data['content'] = $data['subject'];
 			$data['subject'] = '';
 		}
-		$message = $this->domain->factory->entity->create(SmsEntity::className(), $data);
+		$message = $this->domain->factory->entity->create(SmsEntity::class, $data);
 		$message->validate();
-		$job = Yii::createObject(SmsJob::className());
+		$job = Yii::createObject(SmsJob::class);
 		Yii::configure($job, $message->toArray());
 		$jobId = Yii::$app->queue->push($job);
 		return $jobId;

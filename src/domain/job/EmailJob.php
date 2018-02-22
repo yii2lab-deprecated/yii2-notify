@@ -20,7 +20,7 @@ class EmailJob extends BaseObject implements JobInterface
 			'subject' => $this->subject,
 			'content' => $this->content,
 		];
-		$entity = Yii::$app->notify->factory->entity->create(EmailEntity::className(), $data);
+		$entity = Yii::$app->notify->factory->entity->create(EmailEntity::class, $data);
 		Yii::$app->notify->repositories->email->send($entity);
 	}
 }

@@ -16,7 +16,7 @@ class FlashRepository extends BaseRepository {
 	}
 	
 	public function fetch() {
-		$typeList = ReflectionHelper::getConstantsValuesByPrefix(Alert::className(), 'type');
+		$typeList = ReflectionHelper::getConstantsValuesByPrefix(Alert::class, 'type');
 		foreach($typeList as $type) {
 			if ($this->has($type)) {
 				$entity = $this->fetchByType($type);
