@@ -3,9 +3,10 @@
 namespace yii2lab\notify\admin\helpers;
 
 use common\enums\rbac\PermissionEnum;
+use yii2lab\helpers\interfaces\MenuInterface;
 use yii2lab\notify\domain\helpers\JobHelper;
 
-class Menu {
+class Menu implements MenuInterface {
 	
 	public function toArray() {
 		return [
