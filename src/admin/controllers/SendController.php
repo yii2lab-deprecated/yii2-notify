@@ -27,7 +27,7 @@ class SendController extends Controller
 			$model->setAttributes($body, false);
 			try {
 				Yii::$app->notify->sms->send($model->address, $model->content);
-				Yii::$app->notify->flash->send(['notify/main', 'message_success_send']);
+				Yii::$app->navigation->alert->create(['notify/main', 'message_success_send']);
 			} catch (UnprocessableEntityHttpException $e){
 				$model->addErrorsFromException($e);
 			}
@@ -42,7 +42,7 @@ class SendController extends Controller
 			$model->setAttributes($body, false);
 			try {
 				Yii::$app->notify->email->send($model->address, $model->subject, $model->content);
-				Yii::$app->notify->flash->send(['notify/main', 'message_success_send']);
+				Yii::$app->navigation->alert->create(['notify/main', 'message_success_send']);
 			} catch (UnprocessableEntityHttpException $e){
 				$model->addErrorsFromException($e);
 			}
