@@ -8,6 +8,12 @@ use Yii;
 use yii2lab\notify\domain\entities\FlashEntity;
 use yii2lab\notify\domain\widgets\Alert;
 
+/**
+ * Class FlashRepository
+ *
+ * @package yii2lab\notify\domain\repositories\session
+ * @deprecated use yii2lab\navigation\domain\repositories\session\FlashRepository
+ */
 class FlashRepository extends BaseRepository {
 	
 	public function send(FlashEntity $entity) {
