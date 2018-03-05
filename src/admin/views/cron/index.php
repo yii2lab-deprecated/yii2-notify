@@ -1,10 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $jobList JobInterface[] */
 
 use yii\data\ArrayDataProvider;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
+use yii\queue\JobInterface;
 use yii2lab\helpers\yii\Html;
 
 $this->title = Yii::t('notify/cron', 'title');
@@ -13,7 +15,7 @@ $columns = [
 		'label' => 'class',
 		'format' => 'raw',
 		'value' => function($job) {
-			return $job->className();
+			return get_class($job);
 		},
 	],
 	[
