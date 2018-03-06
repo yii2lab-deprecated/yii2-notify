@@ -21,7 +21,7 @@ Yii::$app->navigation->breadcrumbs->create($this->title);
 			<?= $form->field($model, 'content')->textarea() ?>
 
             <div class="form-group">
-				<?= Html::submitButton(t('action', 'send'), ['class' => 'btn btn-primary']) ?>
+				<?= Html::submitButton(Yii::t('action', 'send'), ['class' => 'btn btn-primary']) ?>
             </div>
 			
 			<?php ActiveForm::end(); ?>

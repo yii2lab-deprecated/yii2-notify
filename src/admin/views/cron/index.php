@@ -38,7 +38,7 @@ $dataProvider = new ArrayDataProvider([
 
 		<p class="lead"><?= Yii::t('notify/cron', 'text') ?></p>
 		
-		<?= Html::a(t('notify/cron', 'run'), '/notify/cron/run', [
+		<?= Html::a(Yii::t('notify/cron', 'run'), '/notify/cron/run', [
 			'data-method' => 'post',
 			'class' => ['btn btn-primary'],
 		]) ?>
