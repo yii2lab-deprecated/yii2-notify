@@ -3,9 +3,9 @@
 namespace yii2lab\notify\admin\forms;
 
 use Yii;
-use yii2module\account\domain\v1\forms\RestorePasswordForm as ApiRestorePasswordForm;
+use yii2lab\domain\base\Model;
 
-class MessageForm extends ApiRestorePasswordForm {
+class MessageForm extends Model {
 	
 	public $address;
 	public $subject;
