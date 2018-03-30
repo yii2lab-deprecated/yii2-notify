@@ -5,8 +5,9 @@ namespace yii2lab\notify\domain\repositories\yii;
 use Yii;
 use yii2lab\domain\repositories\BaseRepository;
 use yii2lab\notify\domain\entities\MessageEntity;
+use yii2lab\notify\domain\interfaces\repositories\SendInterface;
 
-class EmailRepository extends BaseRepository {
+class EmailRepository extends BaseRepository implements SendInterface {
 	
 	public $email = null;
 	
