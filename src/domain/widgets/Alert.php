@@ -10,6 +10,7 @@ use kartik\widgets\Alert as kartikAlert;
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
+ * @deprecated use \yii2lab\navigation\domain\widgets\Alert
  */
 class Alert extends kartikAlert
 {
