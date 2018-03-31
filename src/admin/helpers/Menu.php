@@ -21,22 +21,22 @@ class Menu implements MenuInterface {
 			'module' => 'notify',
 			'access' => PermissionEnum::NOTIFY_MANAGE,
 			'icon' => 'bell-o',
-			'badge' => $sumBadge ? $sumBadge : null,
+			'badge' => $sumBadge ?: null,
 			'items' => [
 				[
 					'label' => ['notify/main', 'sms'],
 					'url' => 'notify/sms',
-					'badge' => $smsCount,
+					'badge' => $smsCount ?: null,
 				],
 				[
 					'label' => ['notify/main', 'email'],
 					'url' => 'notify/email',
-					'badge' => $emailCount,
+					'badge' => $emailCount ?: null,
 				],
 				[
 					'label' => ['notify/cron', 'title'],
 					'url' => 'notify/cron',
-					'badge' => $cronCount,
+					'badge' => $cronCount ?: null,
 				],
 			],
 		];
