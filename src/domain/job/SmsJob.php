@@ -5,7 +5,6 @@ namespace yii2lab\notify\domain\job;
 use Yii;
 use yii\base\BaseObject;
 use yii\queue\JobInterface;
-use yii2lab\notify\domain\entities\SmsEntity;
 
 class SmsJob extends BaseObject implements JobInterface
 {
@@ -15,12 +14,6 @@ class SmsJob extends BaseObject implements JobInterface
 	
 	public function execute($queue)
 	{
-		$data = [
-			'address' => $this->address,
-			'subject' => $this->subject,
-			'content' => $this->content,
-		];
-		$entity = Yii::$app->notify->factory->entity->create(SmsEntity::class, $data);
-		Yii::$app->notify->repositories->sms->send($entity);
+		Yii::$domain->notify->sms->directSend($this->address, $this->content);
 	}
 }

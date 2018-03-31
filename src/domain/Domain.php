@@ -11,7 +11,6 @@ use yii2lab\domain\enums\Driver;
  *
  * @property \yii2lab\notify\domain\services\EmailService $email
  * @property \yii2lab\notify\domain\services\SmsService $sms
- * @property \yii2lab\notify\domain\services\FlashService $flash
  */
 class Domain extends \yii2lab\domain\Domain {
 	
