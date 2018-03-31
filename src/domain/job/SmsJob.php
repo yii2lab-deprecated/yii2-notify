@@ -9,7 +9,6 @@ use yii\queue\JobInterface;
 class SmsJob extends BaseObject implements JobInterface
 {
 	public $address;
-	public $subject;
 	public $content;
 	
 	public function execute($queue)
