@@ -9,8 +9,9 @@ use yii2lab\domain\enums\Driver;
  *
  * @package yii2lab\notify\domain
  *
- * @property \yii2lab\notify\domain\services\EmailService $email
- * @property \yii2lab\notify\domain\services\SmsService $sms
+ * @property \yii2lab\notify\domain\interfaces\services\EmailInterface $email
+ * @property \yii2lab\notify\domain\interfaces\services\SmsInterface $sms
+ * @property \yii2lab\notify\domain\interfaces\services\TestInterface $test
  */
 class Domain extends \yii2lab\domain\Domain {
 	
@@ -21,12 +22,14 @@ class Domain extends \yii2lab\domain\Domain {
 				'email' => Driver::YII,
 				'sms' => Driver::MOCK,
 				'flash' => Driver::SESSION,
+				'test' => Driver::FILEDB,
 			],
 			'services' => [
 				'transport',
 				'email',
 				'sms',
 				'flash',
+				'test',
 			],
 		];
 	}
