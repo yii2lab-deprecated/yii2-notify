@@ -18,7 +18,7 @@ class SmsController extends BaseController
 		$actions['index'] = [
 			'class' => self::ACTION_INDEX,
 			'render' => self::RENDER_INDEX,
-			'query' => Query::forge()->where('type', TestEntity::TYPE_SMS),
+			'query' => Query::forge()->where('type', TestEntity::TYPE_SMS)->orderBy(['created_at' => SORT_DESC]),
 		];
 		$actions['create'] = [
 			'class' => self::ACTION_CREATE,
