@@ -3,6 +3,7 @@
 namespace yii2lab\notify\domain\entities;
 
 use yii2lab\domain\BaseEntity;
+use yii2lab\domain\values\TimeValue;
 
 /**
  * Class TestEntity
@@ -26,7 +27,18 @@ class TestEntity extends BaseEntity {
 	protected $subject;
 	protected $message;
 	protected $created_at;
-
+	
+	public function init() {
+		parent::init();
+		$this->created_at = new TimeValue;
+	}
+	
+	public function fieldType() {
+		return [
+			'created_at' => TimeValue::class,
+		];
+	}
+	
 	public function rules() {
 		$types = $this->getConstantEnum('type');
 		return [
