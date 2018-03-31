@@ -5,15 +5,11 @@
 use yii\grid\GridView;
 use yii\helpers\Html;
 
-$this->title = Yii::t('article/main', 'list');
+$this->title = Yii::t('notify/main', 'email');
 
 $baseUrl = $this->context->getBaseUrl();
 
 $columns = [
-	[
-		'attribute' => 'type',
-		'label' => Yii::t('notify/main', 'type'),
-	],
 	[
 		'attribute' => 'address',
 		'label' => Yii::t('notify/main', 'address'),
