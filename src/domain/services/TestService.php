@@ -21,13 +21,6 @@ class TestService extends ActiveBaseService implements TestInterface {
 		$entity->address = $address;
 		$entity->subject = $subject;
 		$entity->message = $message;
-		//prr($entity->toArray(),1,1);
-		/*
-		
-		
-		
-		
-		prr($entity,1,1);*/
 		$this->repository->insert($entity);
 	}
 	

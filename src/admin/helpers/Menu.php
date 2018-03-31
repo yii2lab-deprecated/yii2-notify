@@ -17,11 +17,11 @@ class Menu implements MenuInterface {
 			'items' => [
 				[
 					'label' => ['notify/main', 'sms'],
-					'url' => 'notify/send/sms',
+					'url' => 'notify/sms',
 				],
 				[
 					'label' => ['notify/main', 'email'],
-					'url' => 'notify/send/email',
+					'url' => 'notify/email',
 				],
 				[
 					'label' => ['notify/cron', 'title'],

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model yii2lab\notify\admin\forms\MessageForm */
+/* @var $model yii2lab\notify\admin\forms\SmsForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -17,8 +17,6 @@ Yii::$app->navigation->breadcrumbs->create($this->title);
 			<?php $form = ActiveForm::begin(); ?>
 			
 			<?= $form->field($model, 'address')->textInput(['autofocus' => true]) ?>
-			
-			<?= $form->field($model, 'subject')->textInput() ?>
 			
 			<?= $form->field($model, 'content')->textarea() ?>
 
