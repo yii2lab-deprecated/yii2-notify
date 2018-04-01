@@ -15,7 +15,7 @@ use yii2lab\domain\values\TimeValue;
  * @property string $address
  * @property string $subject
  * @property string $message
- * @property  $created_at
+ * @property string $created_at
  */
 class TestEntity extends BaseEntity {
 
