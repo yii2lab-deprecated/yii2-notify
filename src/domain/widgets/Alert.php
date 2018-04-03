@@ -26,7 +26,7 @@ class Alert extends kartikAlert
 	{
 		if(Yii::$app->getResponse()->getStatusCode() != 302) {
 			if($this->autoFill) {
-				$entity = Yii::$app->notify->flash->fetch();
+				$entity = Yii::$domain->notify->flash->fetch();
 				if($entity) {
 					$this->type = $entity->type;
 					$this->body = $entity->content;
@@ -52,7 +52,7 @@ class Alert extends kartikAlert
 	
 	/*public static function add($body, $type = parent::TYPE_SUCCESS)
 	{
-		Yii::$app->navigation->alert->create($body, $type);
+		Yii::$domain->navigation->alert->create($body, $type);
 	}*/
 	
 }

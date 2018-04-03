@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = Yii::t('notify/main', 'email');
-Yii::$app->navigation->breadcrumbs->create($this->title);
+Yii::$domain->navigation->breadcrumbs->create($this->title);
 ?>
 <div class="send-email">
 
