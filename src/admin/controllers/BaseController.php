@@ -7,7 +7,7 @@ use yii2lab\domain\web\ActiveController as Controller;
 class BaseController extends Controller
 {
 	
-	public $serviceName = 'notify.test';
+	public $service = 'notify.test';
 	
 	public function actions() {
 		$actions = parent::actions();
