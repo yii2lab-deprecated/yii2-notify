@@ -17,7 +17,13 @@ use yii2lab\notify\domain\job\SmsJob;
  */
 class SmsService extends ActiveBaseService implements SmsInterface {
 	
+	public $directOnly = false;
+	
 	public function send($address, $content) {
+		if($this->directOnly) {
+			$this->directSend($address, $content);
+			return null;
+		}
 		$entity = new SmsEntity();
 		$entity->address = $address;
 		$entity->content = $content;

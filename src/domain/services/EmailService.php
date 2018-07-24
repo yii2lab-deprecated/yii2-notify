@@ -17,7 +17,13 @@ use yii2lab\notify\domain\job\EmailJob;
  */
 class EmailService extends ActiveBaseService implements EmailInterface {
 	
+	public $directOnly = false;
+	
 	public function send($address, $subject, $content) {
+		if($this->directOnly) {
+			$this->directSend($address, $subject, $content);
+			return null;
+		}
 		$entity = new EmailEntity();
 		$entity->address = $address;
 		$entity->subject = $subject;
