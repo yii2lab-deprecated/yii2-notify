@@ -6,12 +6,12 @@ use yii2lab\domain\enums\Driver;
 
 /**
  * Class Domain
- *
+ * 
  * @package yii2lab\notify\domain
- *
- * @property \yii2lab\notify\domain\interfaces\services\EmailInterface $email
- * @property \yii2lab\notify\domain\interfaces\services\SmsInterface $sms
- * @property \yii2lab\notify\domain\interfaces\services\TestInterface $test
+ * @property-read \yii2lab\notify\domain\interfaces\services\EmailInterface $email
+ * @property-read \yii2lab\notify\domain\interfaces\services\SmsInterface $sms
+ * @property-read \yii2lab\notify\domain\interfaces\services\TestInterface $test
+ * @property-read \yii2lab\notify\domain\interfaces\repositories\RepositoriesInterface $repositories
  */
 class Domain extends \yii2lab\domain\Domain {
 	
