@@ -2,11 +2,11 @@
 
 namespace yii2lab\notify\admin\helpers;
 
-use common\enums\rbac\PermissionEnum;
 use Yii;
 use yii2lab\domain\data\Query;
 use yii2lab\extension\menu\interfaces\MenuInterface;
 use yii2lab\notify\domain\entities\TestEntity;
+use yii2lab\notify\domain\enums\NotifyPermissionEnum;
 use yii2lab\notify\domain\helpers\JobHelper;
 
 class Menu implements MenuInterface {
@@ -19,7 +19,7 @@ class Menu implements MenuInterface {
 		return [
 			'label' => ['notify/main', 'title'],
 			'module' => 'notify',
-			'access' => PermissionEnum::NOTIFY_MANAGE,
+			'access' => NotifyPermissionEnum::MANAGE,
 			'icon' => 'bell-o',
 			'badge' => $sumBadge ?: null,
 			'items' => [
