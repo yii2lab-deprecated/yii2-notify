@@ -9,7 +9,7 @@ class JobHelper {
 	
 	public static function getAll() {
 		$dir = self::getDir();
-		$jobList = FileHelper::scanDir($dir);
+		$jobList = FileHelper::scanDir($dir, ['only'=>['*.data']]);
 		$jobList2 = [];
 		foreach($jobList as $id => $fileName) {
 			if($fileName == 'index.data') {
