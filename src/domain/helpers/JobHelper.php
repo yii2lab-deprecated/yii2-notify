@@ -3,7 +3,7 @@
 namespace yii2lab\notify\domain\helpers;
 
 use Yii;
-use yii2lab\helpers\yii\FileHelper;
+use yii2lab\extension\yii\helpers\FileHelper;
 
 class JobHelper {
 	
