@@ -23,7 +23,7 @@ class SmsController extends BaseController
 		$actions['create'] = [
 			'class' => self::ACTION_CREATE,
 			'render' => self::RENDER_CREATE,
-			'service' => Yii::$domain->notify->sms,
+			'service' => \App::$domain->notify->sms,
 			'serviceMethod' => 'send',
 			'serviceMethodParams' => ['address', 'content'],
 		];

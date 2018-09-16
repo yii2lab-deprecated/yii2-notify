@@ -14,6 +14,6 @@ class EmailJob extends BaseObject implements JobInterface
 	
 	public function execute($queue)
 	{
-		Yii::$domain->notify->email->directSend($this->address, $this->subject, $this->content);
+		\App::$domain->notify->email->directSend($this->address, $this->subject, $this->content);
 	}
 }

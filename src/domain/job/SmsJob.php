@@ -13,6 +13,6 @@ class SmsJob extends BaseObject implements JobInterface
 	
 	public function execute($queue)
 	{
-		Yii::$domain->notify->sms->directSend($this->address, $this->content);
+		\App::$domain->notify->sms->directSend($this->address, $this->content);
 	}
 }

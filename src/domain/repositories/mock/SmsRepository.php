@@ -11,7 +11,7 @@ use yii2lab\notify\domain\interfaces\repositories\SmsInterface;
 class SmsRepository extends BaseRepository implements SmsInterface {
 	
 	public function send(SmsEntity $message) {
-		return Yii::$domain->notify->test->send(TestEntity::TYPE_SMS, $message->address, null, $message->content);
+		return \App::$domain->notify->test->send(TestEntity::TYPE_SMS, $message->address, null, $message->content);
 	}
 	
 }

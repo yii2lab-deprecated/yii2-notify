@@ -26,7 +26,7 @@ class CronController extends Controller
 		$jobList = JobHelper::getAll();
 		if(!empty($jobList)) {
 			$message = Yii::t('notify/cron', 'has_job');
-			Yii::$domain->navigation->alert->create($message, Alert::TYPE_INFO, null);
+			\App::$domain->navigation->alert->create($message, Alert::TYPE_INFO, null);
 		}
 		return $this->render('index', compact('jobList'));
 	}
@@ -38,9 +38,9 @@ class CronController extends Controller
 			$queue = Yii::$app->queue;
 			/** @var \yii\queue\file\Queue $queue */
 			$queue->run(false);
-			Yii::$domain->navigation->alert->create(['notify/cron', 'cron_success_run']);
+			\App::$domain->navigation->alert->create(['notify/cron', 'cron_success_run']);
 		} else {
-			Yii::$domain->navigation->alert->create(['notify/cron', 'cron_empty_run'], Alert::TYPE_WARNING);
+			\App::$domain->navigation->alert->create(['notify/cron', 'cron_empty_run'], Alert::TYPE_WARNING);
 		}
 		return $this->redirect('/notify/cron');
 	}

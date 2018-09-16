@@ -11,7 +11,7 @@ use yii2lab\notify\domain\interfaces\repositories\EmailInterface;
 class EmailRepository extends BaseRepository implements EmailInterface {
 	
 	public function send(EmailEntity $message) {
-		return Yii::$domain->notify->test->send(TestEntity::TYPE_EMAIL, $message->address, $message->subject, $message->content);
+		return \App::$domain->notify->test->send(TestEntity::TYPE_EMAIL, $message->address, $message->subject, $message->content);
 	}
 	
 }

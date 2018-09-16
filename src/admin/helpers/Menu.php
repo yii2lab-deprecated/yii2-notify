@@ -12,8 +12,8 @@ use yii2lab\notify\domain\helpers\JobHelper;
 class Menu implements MenuInterface {
 	
 	public function toArray() {
-		$smsCount = Yii::$domain->notify->test->count(Query::forge()->where('type', TestEntity::TYPE_SMS));
-		$emailCount = Yii::$domain->notify->test->count(Query::forge()->where('type', TestEntity::TYPE_EMAIL));
+		$smsCount = \App::$domain->notify->test->count(Query::forge()->where('type', TestEntity::TYPE_SMS));
+		$emailCount = \App::$domain->notify->test->count(Query::forge()->where('type', TestEntity::TYPE_EMAIL));
 		$cronCount = count(JobHelper::getAll());
 		$sumBadge = $smsCount + $emailCount + $cronCount;
 		return [

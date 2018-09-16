@@ -23,7 +23,7 @@ class EmailController extends BaseController
 		$actions['create'] = [
 			'class' => self::ACTION_CREATE,
 			'render' => self::RENDER_CREATE,
-			'service' => Yii::$domain->notify->email,
+			'service' => \App::$domain->notify->email,
 			'serviceMethod' => 'send',
 			'serviceMethodParams' => ['address', 'subject', 'content'],
 		];
