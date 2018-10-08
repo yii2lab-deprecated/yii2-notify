@@ -5,7 +5,7 @@ namespace yii2lab\notify\admin\controllers;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
-use yii2lab\helpers\Behavior;
+use yii2lab\extension\web\helpers\Behavior;
 use yii2lab\notify\domain\helpers\JobHelper;
 use yii2lab\navigation\domain\widgets\Alert;
 
