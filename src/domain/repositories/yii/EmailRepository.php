@@ -36,7 +36,6 @@ class EmailRepository extends BaseRepository implements EmailInterface {
 				}
 			}
 		}
-		//prr($message->attachments,1,1);
 		return $mailer->send();
 	}
 	
