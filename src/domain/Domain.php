@@ -19,7 +19,7 @@ class Domain extends \yii2lab\domain\Domain {
 		return [
 			'repositories' => [
 				'transport',
-				'email' => YII_ENV_PROD ? Driver::YII : Driver::MOCK,
+				'email' => Driver::YII,
 				'sms' => Driver::MOCK,
 				'flash' => Driver::SESSION,
 				'test' => Driver::FILEDB,

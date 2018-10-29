@@ -13,12 +13,14 @@ use yii2lab\domain\values\LangValue;
  * @property string $address
  * @property string $subject
  * @property string $content
+ * @property AttachmentEntity[] $attachments
  */
 class EmailEntity extends BaseEntity {
 	
 	protected $address;
 	protected $subject;
 	protected $content;
+	protected $attachments;
 	
 	/**
 	 * @inheritdoc
@@ -36,6 +38,10 @@ class EmailEntity extends BaseEntity {
 		return [
 			'subject' => LangValue::class,
 			'content' => LangValue::class,
+			'attachments' => [
+				'type' => AttachmentEntity::class,
+				'isCollection' => true,
+			],
 		];
 	}
 	

@@ -24,6 +24,19 @@ class EmailRepository extends BaseRepository implements EmailInterface {
 		$mailer->setSubject($message->subject);
 		$mailer->setTextBody($message->content);
 		$mailer->setHtmlBody($message->content);
+		if($message->attachments) {
+			foreach($message->attachments as $attachmentEntity) {
+				if($attachmentEntity->content) {
+					$mailer->attachContent($attachmentEntity->content, [
+						'fileName' => basename($attachmentEntity->fileName),
+						'contentType' => $attachmentEntity->contentType,
+					]);
+				} else {
+					$mailer->attach($attachmentEntity->fileName);
+				}
+			}
+		}
+		//prr($message->attachments,1,1);
 		return $mailer->send();
 	}
 	
