@@ -4,9 +4,6 @@ namespace yii2lab\notify\domain\repositories\yii;
 
 use Yii;
 use yii2lab\domain\Alias;
-use yii2lab\domain\data\Query;
-use yii2lab\domain\interfaces\repositories\ReadInterface;
-use yii2lab\domain\repositories\BaseRepository;
 use yii2lab\extension\arrayTools\repositories\base\BaseActiveArrayRepository;
 use yii2lab\extension\yii\helpers\FileHelper;
 use yii2lab\notify\domain\entities\EmailEntity;
