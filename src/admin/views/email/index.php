@@ -19,13 +19,13 @@ $columns = [
 		'label' => Yii::t('notify/main', 'subject'),
 	],
 	[
-		'attribute' => 'message',
+		'attribute' => 'content',
 		'label' => Yii::t('notify/main', 'content'),
 	],
-	[
+	/*[
 		'attribute' => 'created_at',
 		'label' => Yii::t('main', 'created_at'),
-	],
+	],*/
 ];
 
 ?>
