@@ -23,13 +23,14 @@ class Domain extends \yii2lab\domain\Domain {
 				'sms' => Driver::MOCK,
 				'flash' => Driver::SESSION,
 				'test' => Driver::FILEDB,
+				'push' => Driver::REST,
 			],
 			'services' => [
 				'transport',
 				'email',
 				'sms',
 				'flash',
-				'test',
+				'push'
 			],
 		];
 	}
