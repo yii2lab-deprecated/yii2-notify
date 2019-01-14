@@ -3,6 +3,7 @@
 namespace yii2lab\notify\api\v1\controllers;
 
 use Yii;
+use yii2lab\app\domain\filters\config\LoadRouteConfig;
 use yii2lab\extension\web\helpers\Behavior;
 use yii2lab\notify\domain\enums\NotifyPermissionEnum;
 use yii2lab\notify\domain\interfaces\services\PushInterface;
@@ -26,7 +27,8 @@ class FireConsoleController extends Controller {
 		return [
 			'authenticator' => Behavior::auth([
 				'push-all',
-				'push'
+				'push',
+				'Routes'
 			]),
 			'verb' => Behavior::verb($this->verbs()),
 			Behavior::access(NotifyPermissionEnum::MANAGE),
@@ -48,5 +50,9 @@ class FireConsoleController extends Controller {
 	public function actionPush($id) {
 		$body = Yii::$app->request->getBodyParams();
 		return $this->service->send($id,$body);
+	}
+	public function actionRoutes(){
+		$confg = new LoadRouteConfig;
+		return Yii::$app->getUrlManager()->rules;
 	}
 }
