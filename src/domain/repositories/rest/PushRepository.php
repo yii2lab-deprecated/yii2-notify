@@ -25,7 +25,7 @@ class PushRepository extends BaseRestRepository implements PushInterface{
 	 * @return bool
 	 */
 	public function sendAll($notification) {
-		$pushEntity = $this->forgeEntity($notification);
+		$pushEntity = $this->prepareSend($notification);
 		
 		$usersList = \App::$domain->account->fireUser->all();
 		$targetTokens = [];
@@ -34,11 +34,8 @@ class PushRepository extends BaseRestRepository implements PushInterface{
 				$targetTokens[] = $users->device_token;
 			}
 		}
-		$fields = [
-			'to' => $targetTokens,
-			'data' => $pushEntity->toArray(),
-		];
-		return $this->sendPushNotification($fields);
+		$fireBase = new FireBaseSend();
+		return $fireBase->sendMultiple($targetTokens, $pushEntity->toArray());
 	}
 	
 	/**
@@ -51,15 +48,9 @@ class PushRepository extends BaseRestRepository implements PushInterface{
 	public function send($id, $notification) {
 		$pushEntity = $this->prepareSend($notification);
 		$fireUser = \App::$domain->account->fireUser->oneById($id);
-		//$fields = [
-		//	'to' => $fireUser->device_token,
-		//
-		//	'notification' => $pushEntity->toArray()
-		//];
 		$fireBase = new FireBaseSend();
-
-		return $fireBase->send( $fireUser->device_token, $pushEntity->toArray());
-		//return $this->sendPushNotification($fields);
+		return $fireBase->send('dYxtWvqaR1A:APA91bEIhkotwlCtW0ld-7A22U3bMM5kMI4MPd8lahQkmo95hpO_zukxDrKY9fwcYutud5DufyeE-g-9L9BoWycXJC1CravdFNR-wTUnYjvTyAtuJBKOmL4vgd2LD1FIGUtbuCwiokaR'
+			, $pushEntity->toArray());
 	}
 	
 	private function prepareSend($notification){
@@ -68,17 +59,7 @@ class PushRepository extends BaseRestRepository implements PushInterface{
 		return $pushEntity;
 	}
 	
-	
-	// Sending message to a topic by topic id
-	public function sendToTopic($to, $message) {
-		$fields = [
-			'to' => '/topics/' . $to,
-			'data' => $message,
-		];
-		return $this->sendPushNotification($fields);
-	}
-	
-	// function makes curl request to gcm servers
+	// todo:not work. function makes curl request to gcm servers
 	private function sendPushNotification($fields) {
 		$api_key = Yii::$app->params['FIRE_BASE_PROJECT_NAME'];
 		// Set POST variables
