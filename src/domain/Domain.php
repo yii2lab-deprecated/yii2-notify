@@ -30,7 +30,8 @@ class Domain extends \yii2lab\domain\Domain {
 				'email',
 				'sms',
 				'flash',
-				'push'
+				'push',
+				'test'
 			],
 		];
 	}
