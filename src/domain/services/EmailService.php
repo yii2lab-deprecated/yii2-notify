@@ -25,7 +25,7 @@ class EmailService extends ActiveBaseService implements EmailInterface {
 			return null;
 		}
 		$emailEntity->validate();
-		$this->createJob($emailEntity);
+		return $this->createJob($emailEntity);
 	}
 	
 	public function directSendEntity(EmailEntity $emailEntity) {
