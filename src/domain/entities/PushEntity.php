@@ -12,18 +12,21 @@ use yii2lab\domain\BaseEntity;
  * @property string $body
  * @property string $title
  */
-class PushEntity extends BaseEntity {
-	
+class PushEntity extends BaseEntity
+{
+
 	protected $body;
 	protected $title;
-	
+	protected $service_name;
+	protected $action;
+
 	/**
 	 * @inheritdoc
 	 */
 	public function rules()
 	{
 		return [
-			[['body', 'title'], 'trim'],
+			[['body', 'title', 'service_name', 'action'], 'trim'],
 			[['body', 'title'], 'required'],
 		];
 	}
