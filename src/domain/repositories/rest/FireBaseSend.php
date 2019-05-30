@@ -37,7 +37,7 @@ class FireBaseSend
     // sending push message to multiple users by gcm registration ids
     public function sendMultiple($registration_ids, $message) {
         $fields = array(
-            'to' => $registration_ids,
+            'to' => json_encode($registration_ids),
             'data' => $message,
         );
         return $this->sendPushNotification($fields);
