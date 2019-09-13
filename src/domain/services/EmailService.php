@@ -71,7 +71,7 @@ class EmailService extends ActiveBaseService implements EmailInterface {
     }
 
     public function tpsSend($login, $body, $email, $subject) {
-        App::$domain->notify->repositories->email->tpsSend($login, $body, $email, $subject);
+        $this->repository->tpsSend($login, $body, $email, $subject);
     }
 	
 	private function createJob(EmailEntity $emailEntity) {
