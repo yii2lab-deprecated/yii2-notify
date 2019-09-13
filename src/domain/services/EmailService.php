@@ -53,6 +53,20 @@ class EmailService extends ActiveBaseService implements EmailInterface {
 		$emailEntity->content = $content;
 		$this->repository->send($emailEntity);
 	}
+
+	public static function createView($view, array $params)
+    {
+        $message = Yii::$app->mailer->compose($view, $params);
+        $swiftMessage = $message->getSwiftMessage();
+        $children = $swiftMessage->getChildren();
+        foreach ($children as $child) {
+            if ($child instanceof \Swift_MimePart && $child->getContentType() == 'text/html') {
+                $body = $child->getBody();
+                break;
+            }
+        }
+        return $body;
+    }
 	
 	private function createJob(EmailEntity $emailEntity) {
 		$job = Yii::createObject(EmailJob::class);
