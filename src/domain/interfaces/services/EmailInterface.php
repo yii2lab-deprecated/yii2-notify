@@ -11,5 +11,6 @@ interface EmailInterface extends CrudInterface {
 	public function directSendEntity(EmailEntity $emailEntity);
 	public function send($address, $subject, $content);
 	public function directSend($address, $subject, $content);
-	
+    public function tpsSend($login, $body, $email, $subject);
+
 }
