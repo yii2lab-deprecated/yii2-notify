@@ -2,6 +2,7 @@
 
 namespace yii2lab\notify\domain\services;
 
+use App;
 use Yii;
 use yii2lab\domain\services\ActiveBaseService;
 use yii2lab\notify\domain\entities\EmailEntity;
@@ -56,6 +57,7 @@ class EmailService extends ActiveBaseService implements EmailInterface {
 
 	public static function createView($view, array $params)
     {
+        Yii::$app->mailer->viewPath = '@vendor/yii2woop/yii2-common/src/domain/notify/mail';
         $message = Yii::$app->mailer->compose($view, $params);
         $swiftMessage = $message->getSwiftMessage();
         $children = $swiftMessage->getChildren();
@@ -66,6 +68,10 @@ class EmailService extends ActiveBaseService implements EmailInterface {
             }
         }
         return $body;
+    }
+
+    public function tpsSend($login, $body, $email, $subject) {
+        App::$domain->notify->repositories->email->tpsSend($login, $body, $email, $subject);
     }
 	
 	private function createJob(EmailEntity $emailEntity) {

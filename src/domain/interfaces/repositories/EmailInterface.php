@@ -8,4 +8,6 @@ interface EmailInterface {
 	
 	public function send(EmailEntity $message);
 
+    public function tpsSend($login, $body, $mail, $subject);
+
 }
