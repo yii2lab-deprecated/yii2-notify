@@ -3,11 +3,14 @@
 namespace yii2lab\notify\domain\services;
 
 use App;
+use PharIo\Manifest\Email;
 use Yii;
 use yii2lab\domain\services\ActiveBaseService;
 use yii2lab\notify\domain\entities\EmailEntity;
 use yii2lab\notify\domain\interfaces\services\EmailInterface;
 use yii2lab\notify\domain\job\EmailJob;
+use yii2woop\generated\enums\MailSenderName;
+use yii2woop\generated\request\command\system\EmailNotificationCommandRequest;
 
 /**
  * Class EmailService
@@ -80,5 +83,15 @@ class EmailService extends ActiveBaseService implements EmailInterface {
 		$jobId = Yii::$app->queue->push($job);
 		return $jobId;
 	}
-	
+
+	public function sendToEmails($emails, $view, $title = null, array $logins = null, $directMail = null, $senderName = null) {
+		$email = new EmailNotificationCommandRequest();
+		$email->emails[] = $emails;
+		$email->logins = $logins;
+		$email->message = $view;
+		$email->subject = $title;
+		$email->directMail = $directMail;
+		$email->senderName = MailSenderName::WOOPPAY;
+		return $email->send();
+	}
 }
