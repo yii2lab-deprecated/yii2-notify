@@ -19,14 +19,14 @@ class PushEntity extends BaseEntity
 	protected $title;
 	protected $service_name;
 	protected $action;
-
+	protected $link;
 	/**
 	 * @inheritdoc
 	 */
 	public function rules()
 	{
 		return [
-			[['body', 'title', 'service_name', 'action'], 'trim'],
+			[['body', 'title', 'service_name', 'action', 'link'], 'trim'],
 			[['body', 'title'], 'required'],
 		];
 	}
